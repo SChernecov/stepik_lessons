@@ -1,0 +1,5 @@
+#first-field
+//*[@name="second-name"]
+.upper-third-control
+//*[@unique_attribute="number"]
+//*[@class="lower-block-second-control"]
