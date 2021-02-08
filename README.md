@@ -1,3 +1,3 @@
 Hi all! 
 
-This repository for UI tests writing in Stepik course
+This repository for writing UI tests on Stepik course
