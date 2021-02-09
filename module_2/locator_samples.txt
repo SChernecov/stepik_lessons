@@ -1,5 +1,5 @@
-#first-field
-//*[@name="second-name"]
-.upper-third-control
-//*[@unique_attribute="number"]
-//*[@class="lower-block-second-control"]
+input#first-field
+//input[@name="second-name"]
+input.upper-third-control
+//input[@unique_attribute="number"]
+//input[@class="lower-block-second-control"]
