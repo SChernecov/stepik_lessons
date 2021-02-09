@@ -32,3 +32,5 @@ finally:
     time.sleep(10)
     # закрываем браузер после всех манипуляций
     browser.quit()
+
+# правильная команда для запуска с ключом - python module_2/test_registration.py http://suninjuly.github.io/registration1.html
