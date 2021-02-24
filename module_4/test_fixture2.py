@@ -1,4 +1,4 @@
-rom selenium import webdriver
+from selenium import webdriver
 
 link = "http://selenium1py.pythonanywhere.com/"
 browser = None
