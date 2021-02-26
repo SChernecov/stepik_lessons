@@ -10,21 +10,26 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-class TestCod():
-  def setup_method(self, method):
-    self.driver = webdriver.Chrome()
-    self.vars = {}
-  
-  def teardown_method(self, method):
-    self.driver.quit()
-  
-  def test_cod(self):
-    self.driver.get("http://selenium1py.pythonanywhere.com/ru/")
-    self.driver.set_window_size(968, 1039)
-    self.driver.find_element(By.ID, "login_link").click()
-    self.driver.find_element(By.ID, "id_registration-email").click()
-    self.driver.find_element(By.ID, "id_registration-email").send_keys("pent10@gmail.com")
-    self.driver.find_element(By.ID, "id_registration-password1").send_keys("azadr12345")
-    self.driver.find_element(By.ID, "id_registration-password2").send_keys("azadr12345")
-    self.driver.find_element(By.NAME, "registration_submit").click()
-  
+
+class TestHttpselenium1pypythonanywherecomru():
+    def setup_method(self, method):
+        self.driver = webdriver.Chrome()
+        self.vars = {}
+
+    def teardown_method(self, method):
+        self.driver.quit()
+
+    def test_httpselenium1pypythonanywherecomru(self):
+        self.driver.get("http://selenium1py.pythonanywhere.com/ru/")
+        self.driver.set_window_size(968, 1039)
+        self.driver.find_element(By.ID, "login_link").click()
+        self.driver.find_element(By.ID, "id_registration-email").click()
+        self.driver.find_element(By.ID, "id_registration-email").send_keys("pent10@gmail.com")
+        self.driver.find_element(By.ID, "id_registration-password1").click()
+        self.driver.find_element(By.ID, "id_registration-password1").send_keys("azadr12345")
+        self.driver.find_element(By.ID, "id_registration-password2").click()
+        self.driver.find_element(By.ID, "id_registration-password2").send_keys("azadr12345")
+        self.driver.find_element(By.NAME, "registration_submit").click()
+        assert self.driver.find_element(By.CSS_SELECTOR, ".alertinner").text == "Спасибо за регистрацию!"
+        self.driver.close()
+
