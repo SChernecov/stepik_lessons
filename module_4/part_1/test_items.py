@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_add_book_button_ru(browser, language):
     # Data
     book_page_link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
