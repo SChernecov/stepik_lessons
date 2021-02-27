@@ -16,4 +16,4 @@ def test_add_book_button_ru(browser, language):
     elif language == "fr":
         assert add_book_button_text == 'Ajouter au panier', 'Не отображается текст кнопки "Ajouter au panier"'
     else:
-        pytest.skip(f"Unsupported language: {language}")
+        pytest.skip(f"Язык не поддерживается: {language}")
