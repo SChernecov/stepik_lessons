@@ -10,6 +10,9 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
+    def url(self):
+        self.driver.current_url.get()
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
