@@ -2,6 +2,7 @@ from module_5.pages.main_page import MainPage
 
 link = "http://selenium1py.pythonanywhere.com/"
 
+
 class TestMainPage:
     def test_guest_can_go_to_login_page(self, browser):
         page = MainPage(browser,
