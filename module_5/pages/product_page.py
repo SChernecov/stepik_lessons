@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         self.should_be_correct_price_basket()
 
     def should_be_correct_product_adding(self):
-        assert self.text_attributes(*BasketPageLocators.BOOK_NAME_LOCATOR) == self.text_attributes(*BasketPageLocators.ADD_BOOK_NAME_LOCATOR)
+        assert self.text_attributes(*BasketPageLocators.BOOK_NAME_LOCATOR) == self.text_attributes(*BasketPageLocators.ADD_BOOK_NAME_LOCATOR), "The title of the book does not match the one added"
 
     def should_be_correct_price_basket(self):
-        assert self.text_attributes(*BasketPageLocators.BOOK_PRICE_LOCATOR) == self.text_attributes(*BasketPageLocators.MESSAGE_BASKET_PRICE_LOCATOR)
+        assert self.text_attributes(*BasketPageLocators.BOOK_PRICE_LOCATOR) == self.text_attributes(*BasketPageLocators.MESSAGE_BASKET_PRICE_LOCATOR), "The value of the basket does not match the price of the item"
