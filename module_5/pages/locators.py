@@ -17,3 +17,4 @@ class ProductPageLocators():
     PRODUCT_NAME_IN_MESSAGE_LOCATOR = (By.CSS_SELECTOR, "#messages > div:nth-child(1) strong")
     PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, "p.price_color")
     BASKET_PRICE_IN_MESSAGE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
+    SUCCESS_MESSAGE_LOCATOR = (By.CSS_SELECTOR, "#messages div:nth-of-type(1) .alertinner")
