@@ -3,18 +3,31 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def adding_book(self):
-        link = self.browser.find_element(*ProductPageLocators.ADD_BOOK_BUTTON_LOCATOR)
+    def click_add_to_basket_button(self):
+        link = self.browser.find_element(*ProductPageLocators.ADD_PRODUCT_BUTTON_LOCATOR)
         link.click()
 
-    def should_be_product_adding(self):
-        self.should_be_correct_product_adding()
-        self.should_be_correct_price_basket()
+        # считываю название продукта
 
-    def should_be_correct_product_adding(self):
-        assert self.text_attributes(*ProductPageLocators.BOOK_NAME_LOCATOR) == self.text_attributes(
-            *ProductPageLocators.ADD_BOOK_NAME_LOCATOR), "The title of the book does not match the one added"
+    def get_product_name(self):
+        product_name = self.get_element_text(*ProductPageLocators.PRODUCT_NAME_LOCATOR)
+        return product_name
 
-    def should_be_correct_price_basket(self):
-        assert self.text_attributes(*ProductPageLocators.BOOK_PRICE_LOCATOR) == self.text_attributes(
-            *ProductPageLocators.MESSAGE_BASKET_PRICE_LOCATOR), "The value of the basket does not match the price of the item"
+        # считываю цену продукта
+
+    def get_product_price(self):
+        product_price = self.get_element_text(*ProductPageLocators.PRODUCT_PRICE_LOCATOR)
+        return product_price
+
+
+    def should_be_correct_product_adding(self, product_name):
+        product_name_in_message = self.get_element_text(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_LOCATOR)
+        assert product_name == product_name_in_message, "The title of the book does not match the one added"
+
+    def should_be_correct_price_basket(self, product_price):
+        product_price_in_message = self.get_element_text(*ProductPageLocators.BASKET_PRICE_IN_MESSAGE_LOCATOR)
+        assert product_price == product_price_in_message, "The value of the basket does not match the price of the item"
+
+    def should_be_product_adding(self, name, price):
+        self.should_be_correct_product_adding(name)
+        self.should_be_correct_price_basket(price)

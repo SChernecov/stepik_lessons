@@ -12,8 +12,8 @@ class LoginPageLocators():
     REPEAT_REGISTRATION_EMAIL_LOCATOR = (By.CSS_SELECTOR, "#id_registration-password2")
 
 class ProductPageLocators():
-    ADD_BOOK_BUTTON_LOCATOR = (By.CSS_SELECTOR, ".btn-add-to-basket")
-    BOOK_NAME_LOCATOR = (By.CSS_SELECTOR, ".product_main > h1")
-    ADD_BOOK_NAME_LOCATOR = (By.CSS_SELECTOR, "#messages > div:nth-child(1) strong")
-    BOOK_PRICE_LOCATOR = (By.CSS_SELECTOR, "p.price_color")
-    MESSAGE_BASKET_PRICE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
+    ADD_PRODUCT_BUTTON_LOCATOR = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    PRODUCT_NAME_LOCATOR = (By.CSS_SELECTOR, ".product_main > h1")
+    PRODUCT_NAME_IN_MESSAGE_LOCATOR = (By.CSS_SELECTOR, "#messages > div:nth-child(1) strong")
+    PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, "p.price_color")
+    BASKET_PRICE_IN_MESSAGE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
