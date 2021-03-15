@@ -8,6 +8,7 @@ class MainPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK_LOCATOR = (By.CSS_SELECTOR, "span .btn-default:nth-child(1)")
 
 
 class LoginPageLocators():
@@ -25,3 +26,9 @@ class ProductPageLocators():
     PRODUCT_PRICE_LOCATOR = (By.CSS_SELECTOR, "p.price_color")
     BASKET_PRICE_IN_MESSAGE_LOCATOR = (By.CSS_SELECTOR, ".alertinner > p > strong")
     SUCCESS_MESSAGE_LOCATOR = (By.CSS_SELECTOR, "#messages div:nth-of-type(1) .alertinner")
+
+
+class BasketPageLocators:
+    BASKET_MESSAGE_LOCATOR = (By.CSS_SELECTOR, "#content_inner > p")
+    BASKET_PRODUCTS_LOCATOR = (By.CSS_SELECTOR, "#basket_formset")
+
