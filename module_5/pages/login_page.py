@@ -25,3 +25,9 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_EMAIL_LOCATOR), "Registration email locator is not presented"
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD_LOCATOR), "Registration password locator is not presented"
         assert self.is_element_present(*LoginPageLocators.REPEAT_REGISTRATION_EMAIL_LOCATOR), "Repeat registration password locator is not presented"
+
+    def register_new_user(self, email, password):
+        self.put_into(*LoginPageLocators.REGISTRATION_EMAIL_LOCATOR, email)
+        self.put_into(*LoginPageLocators.REGISTRATION_PASSWORD_LOCATOR, password)
+        self.put_into(*LoginPageLocators.REPEAT_REGISTRATION_EMAIL_LOCATOR, password)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON_LOCATOR).click()

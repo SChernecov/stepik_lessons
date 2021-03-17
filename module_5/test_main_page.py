@@ -1,10 +1,11 @@
+import pytest
 from module_5.pages.main_page import MainPage
 from module_5.pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-
+@pytest.mark.login_guest
 class TestMainPage:
     def test_guest_can_go_to_login_page(self, browser):
         page = MainPage(browser, link)

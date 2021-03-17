@@ -34,6 +34,15 @@ class BasePage():
         text_element = element.text
         return text_element
 
+    def put_into(self, how, what, value):
+        element_to_put = self.browser.find_element(how, what)
+        element_to_put.click()
+        element_to_put.send_keys(value)
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
