@@ -31,6 +31,7 @@ class TestProductPage:
         # Assert
         page.should_be_product_adding(name=product_name, price=product_price)
 
+    @pytest.mark.xfail
     def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
         # Arrange
         page = ProductPage(browser, page_link)
@@ -52,6 +53,7 @@ class TestProductPage:
         # Assert
         page.should_not_success_message_is_displayed()
 
+    @pytest.mark.xfail
     def test_message_disappeared_after_adding_product_to_basket(self, browser):
         # Arrange
         page = ProductPage(browser, page_link)
@@ -61,7 +63,7 @@ class TestProductPage:
         page.click_add_to_basket_button()
 
         # Assert
-        page.should_be_success_message_is_dissapeared()
+        page.should_be_success_message_is_disappeared()
 
     def test_guest_should_see_login_link_on_product_page(self, browser):
         # Arrange
@@ -107,7 +109,6 @@ class TestUserAddToBasketFromProductPage:
         page.open()
         page.register_new_user(email, password)
         page.should_be_authorized_user()
-
 
     def test_user_can_add_product_to_basket(self, browser):
         # Arrange

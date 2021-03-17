@@ -5,7 +5,7 @@ from .pages.login_page import LoginPage
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-@pytest.mark.login_guest
+
 class TestMainPage:
     def test_guest_can_go_to_login_page(self, browser):
         # Arrange

@@ -15,9 +15,6 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
-    def url(self):
-        self.driver.current_url.get()
-
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
