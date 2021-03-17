@@ -17,58 +17,83 @@ class TestProductPage:
                               pytest.param("offer7", marks=pytest.mark.xfail), "offer8",
                               "offer9"])
     def test_guest_can_add_product_to_basket(self, browser, promo_offer):
+        # Arrange
         link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo={promo_offer}"
         page = ProductPage(browser, link)
-
         page.open()
         product_name = page.get_product_name()
         product_price = page.get_product_price()
+
+        # Act
         page.click_add_to_basket_button()
         page.solve_quiz_and_get_code()
 
+        # Assert
         page.should_be_product_adding(name=product_name, price=product_price)
 
     def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
-        # Открываем страницу товара
+        # Arrange
         page = ProductPage(browser, page_link)
         page.open()
-        # Добавляем товар в корзину
+
+        # Act
         page.click_add_to_basket_button()
-        # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+
+        # Assert
         page.should_not_success_message_is_displayed()
 
     def test_guest_cant_see_success_message(self, browser):
-        # Открываем страницу товара
+        # Arrange
         page = ProductPage(browser, page_link)
+
+        # Act
         page.open()
-        # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+
+        # Assert
         page.should_not_success_message_is_displayed()
 
     def test_message_disappeared_after_adding_product_to_basket(self, browser):
-        # Открываем страницу товара
+        # Arrange
         page = ProductPage(browser, page_link)
         page.open()
-        # Добавляем товар в корзину
+
+        # Act
         page.click_add_to_basket_button()
-        # Проверяем, что нет сообщения об успехе с помощью is_disappeared
+
+        # Assert
         page.should_be_success_message_is_dissapeared()
 
     def test_guest_should_see_login_link_on_product_page(self, browser):
+        # Arrange
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
+
+        # Act
         page.open()
+
+        # Assert
         page.should_be_login_link()
 
     def test_guest_can_go_to_login_page_from_product_page(self, browser):
+        # Arrange
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
+
+        # Act
         page.open()
+
+        # Assert
         page.go_to_login_page()
 
     def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser):
+        # Arrange
         page = BasketPage(browser, base_page_link)
         page.open()
+
+        # Act
         page.go_to_basket_page()
+
+        # Assert
         page.should_not_be_products_in_basket()
         page.should_be_message_empty_basket()
 
@@ -85,19 +110,25 @@ class TestUserAddToBasketFromProductPage:
 
 
     def test_user_can_add_product_to_basket(self, browser):
+        # Arrange
         page = ProductPage(browser, page_link)
-
         page.open()
         product_name = page.get_product_name()
         product_price = page.get_product_price()
+
+        # Act
         page.click_add_to_basket_button()
         page.solve_quiz_and_get_code()
 
+        # Assert
         page.should_be_product_adding(name=product_name, price=product_price)
 
     def test_user_cant_see_success_message(self, browser):
-        # Открываем страницу товара
+        # Arrange
         page = ProductPage(browser, page_link)
+
+        # Act
         page.open()
-        # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+
+        # Assert
         page.should_not_success_message_is_displayed()
