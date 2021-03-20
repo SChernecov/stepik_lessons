@@ -1,5 +1,5 @@
-from module_5.pages.base_page import BasePage
-from .locators import LoginPageLocators
+from final.pages.base_page import BasePage
+from final.pages.locators import LoginPageLocators
 
 link = "http://selenium1py.pythonanywhere.com/accounts/login/"
 

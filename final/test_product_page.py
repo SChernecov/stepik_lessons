@@ -2,9 +2,9 @@ import time
 
 import pytest
 
-from module_5.pages.product_page import ProductPage
-from module_5.pages.basket_page import BasketPage
-from module_5.pages.login_page import LoginPage
+from final.pages.product_page import ProductPage
+from final.pages.basket_page import BasketPage
+from final.pages.login_page import LoginPage
 
 page_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
 login_link = "http://selenium1py.pythonanywhere.com/accounts/login/"
