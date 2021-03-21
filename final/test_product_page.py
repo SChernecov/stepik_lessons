@@ -99,6 +99,45 @@ class TestProductPage:
         page.should_not_be_products_in_basket()
         page.should_be_message_empty_basket()
 
+    @pytest.mark.personal_test
+    def test_guest_can_open_product_review_form_with_link(self, browser):
+        # Arrange
+        page = ProductPage(browser, page_link)
+        page.open()
+
+        # Act
+        page.open_review_form_with_link()
+
+        # Assert
+        page.should_be_correct_review_form()
+
+    @pytest.mark.personal_test
+    def test_guest_can_open_product_review_form_with_button(self, browser):
+        # Arrange
+        page = ProductPage(browser, page_link)
+        page.open()
+
+        # Act
+        page.open_review_form_with_button()
+
+        # Assert
+        page.should_be_correct_review_form()
+
+    @pytest.mark.personal_test
+    @pytest.mark.parametrize('product_name',
+                             ["The Rspec Book", "Oscar T-shirt"])
+    def test_guest_can_find_product_by_name(self, browser, product_name):
+        # Arrange
+        page = ProductPage(browser, page_link)
+        page.open()
+
+        # Act
+        page.search_product_by_name(product_name)
+        page.open_found_product()
+
+        # Assert
+        page.should_be_correct_product_found(product_name)
+
 
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
@@ -132,16 +171,3 @@ class TestUserAddToBasketFromProductPage:
 
         # Assert
         page.should_not_success_message_is_displayed()
-
-    @pytest.mark.personal_test
-    @pytest.mark.parametrize('options', ["link", "button"])
-    def test_guest_can_open_product_review_form(self, browser, options, open_review_form):
-        # Arrange
-        page = ProductPage(browser, page_link)
-        page.open()
-
-        # Act
-        page.open_review_form(options)
-
-        # Assert
-        page.should_be_correct_review_form()

@@ -2,8 +2,6 @@ from final.pages.base_page import BasePage
 from final.pages.locators import LoginPageLocators
 from final.pages.locators import ResetPasswordLocators
 from final.pages.locators import BasePageLocators
-from final.pages.locators import MainPageLocators
-from final.pages.locators import SearchLocators
 
 link = "http://selenium1py.pythonanywhere.com/accounts/login/"
 
@@ -50,10 +48,6 @@ class LoginPage(BasePage):
         assert self.is_element_present(
             *ResetPasswordLocators.RESET_BUTTON_LOCATOR), "Reset button is not displayed"
 
-    def should_be_search_title(self):
-        assert self.is_element_present(*SearchLocators.SEARCH_TITLE_LOCATOR)
-        assert self.is_not_element_present(*SearchLocators.SORT_BY_LIST_LOCATOR)
-
     def register_new_user(self, email, password):
         self.put_into(*LoginPageLocators.REGISTRATION_EMAIL_LOCATOR, email)
         self.put_into(*LoginPageLocators.REGISTRATION_PASSWORD_LOCATOR, password)
@@ -67,6 +61,3 @@ class LoginPage(BasePage):
 
     def go_to_reset_password_page(self):
         self.browser.find_element(*LoginPageLocators.FORGOTTEN_PASSWORD_LINK_LOCATOR).click()
-
-    def go_to_search_page(self):
-        self.browser.find_element(*MainPageLocators.SEARCH_BASKET).click()

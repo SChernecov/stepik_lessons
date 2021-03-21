@@ -3,7 +3,8 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    SEARCH_BASKET = (By.CSS_SELECTOR, "[value='Search']")
+    SEARCH_BASKET = (By.CSS_SELECTOR, "#id_q")
+    SEARCH_BUTTON = (By.CSS_SELECTOR, "[value='Search']")
 
 
 class BasePageLocators:
@@ -35,6 +36,7 @@ class ProductPageLocators:
     REVIEW_LINK_LOCATOR = (By.CSS_SELECTOR, "section  a")
     REVIEW_TITLE_LOCATOR = (By.CSS_SELECTOR, "legend")
     REVIEW_BUTTON_LOCATOR = (By.CSS_SELECTOR, "#write_review")
+    PRODUCT_LINK_AFTER_SEARCH_LOCATOR = (By.CSS_SELECTOR, ":nth-child(1) > article > h3 > a")
 
 
 class BasketPageLocators:

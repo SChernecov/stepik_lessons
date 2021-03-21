@@ -84,17 +84,3 @@ class TestMainPage:
 
         # Assert
         page.should_be_forgotten_password_form()
-
-    @pytest.mark.personal_test
-    def test_guest_can_find_product_without_name(self, browser):
-        # Arrange
-        page = LoginPage(browser, link)
-        page.open()
-
-        # Act
-        page.go_to_login_page()
-        page.go_to_search_page()
-
-        # Assert
-        page.should_be_search_title()
-
