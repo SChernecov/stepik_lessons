@@ -132,3 +132,16 @@ class TestUserAddToBasketFromProductPage:
 
         # Assert
         page.should_not_success_message_is_displayed()
+
+    @pytest.mark.personal_test
+    @pytest.mark.parametrize('options', ["link", "button"])
+    def test_guest_can_open_product_review_form(self, browser, options, open_review_form):
+        # Arrange
+        page = ProductPage(browser, page_link)
+        page.open()
+
+        # Act
+        page.open_review_form(options)
+
+        # Assert
+        page.should_be_correct_review_form()

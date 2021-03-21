@@ -119,7 +119,6 @@ class TestUserAddToBasketFromProductPage:
 
         # Act
         page.click_add_to_basket_button()
-        page.solve_quiz_and_get_code()
 
         # Assert
         page.should_be_product_adding(name=product_name, price=product_price)

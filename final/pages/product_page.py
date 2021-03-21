@@ -19,6 +19,7 @@ class ProductPage(BasePage):
         product_price = self.get_element_text(*ProductPageLocators.PRODUCT_PRICE_LOCATOR)
         return product_price
 
+
     def should_be_correct_product_adding(self, product_name):
         product_name_in_message = self.get_element_text(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE_LOCATOR)
         assert product_name == product_name_in_message, "The title of the book does not match the one added"
@@ -38,3 +39,13 @@ class ProductPage(BasePage):
     def should_be_success_message_is_disappeared(self):
         assert self.is_disappeared(
             *ProductPageLocators.SUCCESS_MESSAGE_LOCATOR), "Success message is presented, but should not be"
+
+    def should_be_correct_review_form(self):
+        assert self.is_element_present(*ProductPageLocators.REVIEW_TITLE_LOCATOR), "Reviem title is not presented, but should  be"
+
+    def open_review_form(self):
+        variants = {"link": '(*ProductPageLocators.REVIEW_LINK_LOCATOR)', "button": '(*ProductPageLocators.REVIEW_BUTTON_LOCATOR)'}
+        self.browser.find_element[variants].click()
+
+        # self.browser.find_element(*ProductPageLocators.REVIEW_LINK_LOCATOR).click(link)
+        # self.browser.find_element(*ProductPageLocators.REVIEW_BUTTON_LOCATOR).click(button)
