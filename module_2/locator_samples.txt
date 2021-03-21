@@ -1,5 +1,0 @@
-input#first-field
-//input[@name="second-name"]
-input.upper-third-control
-//input[@unique_attribute="number"]
-//input[@class="lower-block-second-control"]
