@@ -104,7 +104,7 @@ class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         email = str(time.time()) + "@fakemail.org"
-        password = "Remont2021!"
+        password = "Remont2022!"
         page = LoginPage(browser, login_link)
         page.open()
         page.register_new_user(email, password)
